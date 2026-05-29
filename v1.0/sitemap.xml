@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/drp_ai_overview/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/drp_ai_porting_guide/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/faq/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/quick_start_guide/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/release_note/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/rz_aosp_build/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v1.0/rz_aosp_note/</loc>
+         <lastmod>2026-05-29</lastmod>
+    </url>
+</urlset>
