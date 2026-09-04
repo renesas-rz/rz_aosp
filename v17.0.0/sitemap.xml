@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/application-notes/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/frequently-asked-questions/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/how-to-build-aosp-from-source-code/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/introduction/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/quick-start-guides/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+    <url>
+         <loc>https://renesas-rz.github.io/rz_aosp/v17.0.0/release-notes/</loc>
+         <lastmod>2026-09-04</lastmod>
+    </url>
+</urlset>
