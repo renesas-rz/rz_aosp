@@ -1,23 +1,71 @@
-## **Using SD Card boot**
+## **Using SDCard boot**
 
-Users can boot Android via SD card. Please follow the steps below to boot Android via SD card:
+Due to pin multiplexing between the SDHI interface (used for SDCard boot) and the SDIO interface (used for Wi-Fi), both features cannot be enabled simultaneously.
+To use SDCard boot functionality on the board, please configure the hardware switch and u-boot settings properly.
 
-* Turn off the board. Insert SD card into SD2 slot.
-* Power on board and interrupt at u-boot by pressing any key.
-* Set boot devices (about mmc_dev, please refer table below):
+### **Hardware configuration**
+
+1. Plug in SDCard to **SDIO Port**
+2. Set **SW_OPT_MUX** switch to enable SDCard support:
 
 <div class="table-no-sort" markdown="1">
-| Board | Boot device | mmc_dev | soc_suffix | Default mode |
-| :--- | :--- | :---: | :--- | :---: |
-| RZ/V2H EVK | SDCard (SD1) | 0 | soc/15c00000.sd | ✓ |
-| RZ/V2H EVK | SDCard (SD2) | 1 | soc/15c10000.sd |   |
+| Switch Name | Pin1 | Pin2 | Pin3 | Pin4 |
+| :-: | :-: | :-: | :-: | :-: |
+| SW_OPT_MUX | OFF | - | - | - |
 </div>
 
-* If SD card (on SD2 slot) does not contain an image, please flash new images by using fastboot (See [Flashing images using fastboot](../quick-start-guides/index.md#flashing-images-using-fastboot)).
+### **U-Boot configuration**
 
-<span style="color:red">**Note:**</span>
+To enable SDCard boot support, set the required parameters in u-boot:
 
-* No support external storage on SD1 slot when booting Android image by SD card on SD2 slot.
-* The boot time depends on SDCard speed.
-* It is required to turn off the board. Then unplug/plug Power Adapter to make sure SD card can be
-initialized properly.
+1. Power on the device and interrupt autoboot by pressing any key
+2. Set the u-boot parameters:
+
+    ```bash
+    setenv boot_device 1
+    setenv use_usb_wifi 1
+    saveenv
+    ```
+    {: .diamond2}
+
+3. Press and hold the Power button (POWER) for 2 seconds to turn off board. Press and hold the Power button (POWER) for 2 seconds to turn on board again!
+
+4. Interrupt autoboot by pressing any key and Flash Android image. Please follow [Flashing images using fastboot](../quick-start-guides/index.md#flashing-images-using-fastboot)
+
+!!! note 
+    * Set boot devices (about mmc_dev, please refer table below):
+
+<div class="table-no-sort">
+<table>
+<thead>
+<tr>
+<th style="text-align: left">Board</th>
+<th style="text-align: left">Boot device</th>
+<th style="text-align: center">mmc_dev</th>
+<th style="text-align: left">soc_suffix</th>
+<th style="text-align: center">Default mode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2" style="text-align: left; vertical-align: middle;">SMARC RZ/G3L</td>
+<td style="text-align: left">eMMC/SDCard (uSD0) for eSD boot</td>
+<td style="text-align: center">0</td>
+<td style="text-align: left">soc/11c00000.mmc</td>
+<td style="text-align: center">✓</td>
+</tr>
+<tr>
+<td style="text-align: left">SDCard</td>
+<td style="text-align: center">1</td>
+<td style="text-align: left">soc/11c10000.mmc</td>
+<td style="text-align: center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+!!! note
+    * Both hardware switch configuration and u-boot parameter settings are required for proper SDCard boot functionality.
+    * The boot time depends on SDCard speed.
+

@@ -4,7 +4,7 @@ title: Release Notes
 
 # Release Notes
 
-## Release v15.3.0
+## Release v17.0.0
 
 {% include "./_components/01_features.md" %}
 

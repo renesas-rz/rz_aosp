@@ -18,9 +18,11 @@ SELinux mode is set "enforcing" mode as default. If you face any failure related
 
 If you only want to set SELinux mode temporary to "permissive" mode to run your application, we recommend using below commands:
 
+*  On Ubuntu host PC, execute command:
+
 ```bash
-# On Ubuntu host PC, execute command:
-$ adb root
-$ adb shell setenforce 0	#Disable SELinux
-$ adb shell setenforce 1	#Enable SELinux
+adb root
+adb shell setenforce 0	#Disable SELinux
+adb shell setenforce 1	#Enable SELinux
 ```
+{: .dollar }

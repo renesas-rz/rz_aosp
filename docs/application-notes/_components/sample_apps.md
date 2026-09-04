@@ -1,15 +1,16 @@
 ## Sample Applications for RZ AOSP BSP
 
-Use these three sample applications to verify and test the functionalities of the RZ AOSP BSP. You can find the source code as Git bundles in our [aosp_local_package repository](https://github.com/renesas-rz/aosp_local_package/tree/android15-26q2/RELFILES/sample_apps).
+Use these three sample applications to verify and test the functionalities of the RZ AOSP BSP. You can find the source code as Git bundles in our [aosp_local_package repository](https://github.com/renesas-rz/aosp_local_package/tree/android17-26q3/RELFILES/sample_apps).
 
 ### Prerequisites: Clone the Repository
 To access the bundle files, first clone the `aosp_local_package` repository:
 
 ```bash
-$ export workdir=`pwd`
-$ git clone https://github.com/renesas-rz/aosp_local_package.git
-$ cd aosp_local_package/RELFILES/sample_apps/
+export workdir=`pwd`
+git clone https://github.com/renesas-rz/aosp_local_package.git -b android17-26q3
+cd aosp_local_package/RELFILES/sample_apps/
 ```
+{: .dollar }
 
 ### Summary Table
 
@@ -27,33 +28,39 @@ To use these applications, you need to unbundle the provided files into a local 
 
 #### 1. ApiDemos
 *   **Commands:**
+
 ```bash
-$ cd $workdir/aosp_local_package/RELFILES/sample_apps/
-$ mkdir ApiDemos
-$ cd ApiDemos/
-$ git init
-$ git fetch $workdir/aosp_local_package/RELFILES/sample_apps/apidemos.bundle origin/android-15.0.0_r23-maintain:origin/android-15.0.0_r23-maintain
-$ git checkout origin/android-15.0.0_r23-maintain
+cd $workdir/aosp_local_package/RELFILES/sample_apps/
+mkdir ApiDemos
+cd ApiDemos/
+git init
+git fetch $workdir/aosp_local_package/RELFILES/sample_apps/apidemos.bundle origin/android-17.0.0_r1:origin/android-17.0.0_r1
+git checkout origin/android-17.0.0_r1
 ```
+{: .dollar }
 
 #### 2. Grafika
 *   **Commands:**
+
 ```bash
-$ cd $workdir/aosp_local_package/RELFILES/sample_apps/
-$ mkdir Grafika
-$ cd Grafika/
-$ git init
-$ git fetch $workdir/aosp_local_package/RELFILES/sample_apps/grafika.bundle origin/android14-dev:origin/android14-dev
-$ git checkout origin/android14-dev
+cd $workdir/aosp_local_package/RELFILES/sample_apps/
+mkdir Grafika
+cd Grafika/
+git init
+git fetch $workdir/aosp_local_package/RELFILES/sample_apps/grafika.bundle origin/android14-dev:origin/android14-dev
+git checkout origin/android14-dev
 ```
+{: .dollar }
 
 #### 3. Video Playback Sample
 *   **Commands:**
+
 ```bash
-$ cd $workdir/aosp_local_package/RELFILES/sample_apps/
-$ mkdir video_playback_sample
-$ cd video_playback_sample/
-$ git init
-$ git fetch $workdir/aosp_local_package/RELFILES/sample_apps/video_playback_sample.bundle origin/main:origin/main
-$ git checkout origin/main
+cd $workdir/aosp_local_package/RELFILES/sample_apps/
+mkdir video_playback_sample
+cd video_playback_sample/
+git init
+git fetch $workdir/aosp_local_package/RELFILES/sample_apps/video_playback_sample.bundle origin/main:origin/main
+git checkout origin/main
 ```
+{: .dollar }

@@ -7,11 +7,10 @@ repo_name: rz_aosp
 repo_url: https://github.com/renesas-rz/rz_aosp
 
 nav:
-  - Overview: index.md
+  - Home: index.md
+  - Introduction: introduction/index.md
   - Release Notes: release-notes/index.md
   - Quick Start Guides: quick-start-guides/index.md
-  - AI Applications: ai-applications/index.md
-  - AI Application Porting Guide: ai-application-porting-guide/index.md
   - How to build RZ AOSP from Source Code: how-to-build-aosp-from-source-code/index.md
   - Application Notes: application-notes/index.md
   - FAQ: frequently-asked-questions/index.md
@@ -110,8 +109,6 @@ plugins:
         - _*
         - release-notes/_*/*
         - quick-start-guides/_*/*
-        - ai-applications/_*/*
-        - ai-application-porting-guide/_*/*
         - how-to-build-aosp-from-source-code/_*/*
         - application-notes/_*/*
         - frequently-asked-questions/_*/*

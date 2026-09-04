@@ -11,14 +11,14 @@ If you have any questions about RZ AOSP BSP, please create an issue at:
 
 ### Q1. How to add new package to RZ AOSP BSP?
 
-Please find package name from
-Android.mk
+Please find package name from Android.mk
+
 ![](images/LOCAL_MODULE_Androidmk.png)
-<br>
+
 or Android.bp
-<br>
+
 ![](images/name_Androidbp.png)
-<br>
+
 Then please add package name to `${workspace}/mydroid/device/renesas/common/DeviceCommon.mk` like below:
 ```bash
 PRODUCT_PACKAGES += \
@@ -26,7 +26,8 @@ PRODUCT_PACKAGES += \
     android.hardware.health-service.renesas 
 ```
 
-<span style="color:blue">**Note:**</span> It's required to write SELinux policies for these packages, please refer to [Security-Enhanced Linux in Android](https://source.android.com/docs/security/features/selinux/device-policy){: target="_blank" }
+!!! note
+     It's required to write SELinux policies for these packages, please refer to [Security-Enhanced Linux in Android](https://source.android.com/docs/security/features/selinux/device-policy){: target="_blank" }
 
 ### Q2. How to copy file to RZ AOSP BSP?
 
@@ -38,20 +39,96 @@ PRODUCT_COPY_FILES += \
 ```
 See more examples at `${workspace}/mydroid/device/renesas/common/DeviceCommon.mk`
 
-### Q3. How to port Linux AI application to RZ AOSP?
-
-Please access [AI Application Porting Guide](../ai-application-porting-guide/index.md)
-
-### Q4. How to change display resolution?
+### Q3. How to change display resolution?
 
 Please check [Booting with video parameter set](../application-notes/#booting-with-video-parameter-set)
 
-### Q5. What is the AI performance of the RZ/V2H Software Package for AOSP 15?
+### Q4. What to do if fetch stage is not sucess?
 
-Please refer to the list below
-<br>
-[https://github.com/renesas-rz/rzv_drp-ai_tvm/blob/v2.6.0/docs/model_list/Model_List_V2H.md](https://github.com/renesas-rz/rzv_drp-ai_tvm/blob/v2.6.0/docs/model_list/Model_List_V2H.md){: target="_blank" }
+When executing the fetch commands from [Get RZ AOSP source code](../how-to-build-aosp-from-source-code/index.md#get-rz-aosp-source-code)
+It may meet trouble with `repo sync` in step 
 
-In AOSP, inference time increases by approximately 20% to 50% compared to Linux, due to factors such as the addition
-of the HAL based on the Android architecture. Actual performance is also influenced by the AI model, system configuration,
-and other factors.
+```bash
+./walkthrough.sh SMARC_RZG3L
+```
+{: .dollar }
+
+Typical online fetch errors may include:
+
+!!! danger "Error log"
+    error: RPC failed <br>
+    fatal: unable to access <br>
+    fatal: early EOF <br>
+    GitError: fetch failed <br>
+    HTTP 403 <br>
+    HTTP 500 <br>
+    The remote end hung up unexpectedly <br>
+
+#### Workaround:
+
+```bash
+cd <working_dir>/mydroid
+repo sync -j$(nproc)
+```
+{: .dollar }
+
+!!! note
+    Using an AOSP mirror is recommended to improve fetch reliability and build stability. Please check [Q5. Using AOSP mirror for offline fetch](#q5-using-aosp-mirror-for-offline-fetch)
+
+
+
+### Q5. Using AOSP mirror for offline fetch
+
+#### When should users use the AOSP mirror?
+
+Use the AOSP mirror (Offline for AOSP parts. For RZ parts, it requires internet access) when:
+
+- `repo init` or `repo sync` repeatedly fails while accessing online AOSP repositories.
+- The build environment has limited or unstable Internet access.
+- A proxy, firewall, or shared external IP causes intermittent fetch errors.
+- The project requires a more stable and repeatable source-fetch flow.
+
+Before switching sources, retrying `repo sync` may resolve a temporary network failure. If the errors continue, use the internal mirror.
+
+#### How to prepare an AOSP mirror?
+
+Please follow guide from <https://source.android.com/docs/setup/download/troubleshoot-sync#use-mirror> to download AOSP mirror
+
+---
+
+#### How to use the AOSP mirror with aosp_local_package (RZ AOSP) which was downloaded from [Get RZ AOSP source code](../how-to-build-aosp-from-source-code/index.md#get-rz-aosp-source-code)?
+
+Step 1: Make sure the mirror is accessible
+
+Verify access (Example: AOSP mirror was placed at $WORK_DIR/aosp_mirror)
+
+```bash
+export WORK_DIR=`pwd`
+ls $WORK_DIR/aosp_mirror
+```
+{: .dollar }
+
+---
+
+Step 2: Configure aosp_local_package which was downloaded from [Clone android local package](../how-to-build-aosp-from-source-code/index.md#get-rz-aosp-source-code)
+
+Update the platform configuration to enable offline fetch mode in `buildenv.sh`.
+
+Example:
+
+```bash
+USE_MIRROR="YES"
+LOCAL_MIRROR_DIR=$WORK_DIR/aosp_mirror
+```
+
+---
+
+Step 3: Run fetch operation
+
+Continue executing the step `./walkthrough.sh SMARC_RZG3L` from [Get RZ AOSP source code](../how-to-build-aosp-from-source-code/index.md#get-rz-aosp-source-code)
+
+---
+
+
+
+

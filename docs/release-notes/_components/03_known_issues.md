@@ -1,9 +1,13 @@
-### **Known issues/Limitation**
+### **Known Issues/Limitations**
 
 | No. | Issue |
 | :---: | :--- |
-| 1 | Chrome crashes because it requires 32-bit support. Currently, we do not support 32-bit on AOSP 15. So, it is marked as **software limitation**. WORKAROUND: Using Firefox.|
-| 2 | Low performance was observed when playing back 60p streams with GPU scaling (e.g., Playing back HD stream on a Full HD display). Please check part [GPU limitation](../application-notes/index.md#gpu-limitation)|
-| 3 | H.265 Decode: Temporary visual artifacts may **rarely** occur during fast forward/rewind operations. Normal playback resumes once the operation completes.|
-| 4 | Horizontal noise/flickering when changing mode on MXPlayer when playback H264 224x96 (or some codecs random cases) due to **high GPU usage**. Please check part [GPU limitation](../application-notes/index.md#gpu-limitation)|
-| 5 | Using Screen Record application accessed from Quick Setting to record screen can cause soft reboot on FBE (File-Based encryption) environment after hit stop button. Please check part [Screen record issue from Quick Setting](../application-notes/index.md#screen-record-issue-from-quick-settings)|
+| 1 | Chrome crashes because it requires 32-bit support. Currently, we do not support 32-bit on RZ AOSP, so it is marked as a **software limitation**. **WORKAROUND:** Use Firefox.|
+| 2 | Audio playback has noise when seeking.|
+| 3 | Audio recording loses sound in the first few frames and has intermittent sound issues **randomly**.|
+| 4 | USB camera recording with audio enabled loses sound after a few seconds until the end.|
+| 5 | Grafika/TextureView (and SurfaceView) activities are not working properly.|
+| 6 | ApiDemos: Activity animations and Drag and Drop are not working properly.|
+| 7 | The target playback performance cannot be achieved for video resolutions of 224x96 and lower (both 30p and 60p) when using Crop mode in the MX Player application.|
+| 8 | The target playback performance cannot be achieved for video resolutions ranging from 640x360 to lower (60p).|
+| 9 | Devices with #AC0 or #BC0 in the part number, as well as RZ/G3L EVKIT with Lot # 0000308367 –0000309059 that incorporate these devices, have limitations in the MIPI DSI feature. For details, please contact a Renesas Electronics sales representative.|
