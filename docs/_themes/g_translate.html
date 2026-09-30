@@ -1,0 +1,36 @@
+{#-
+  This code was originally taken from
+    https://stackoverflow.com/a/32020855
+  by
+    Mousey
+  and may be subject to copyright.
+
+  And was modified by Renesas (2025)
+-#}
+
+<div id="google_translate_element"></div>
+<script id="__translate" type="text/javascript">
+  var userLang = navigator.language || navigator.userLanguage || navigator.languages;
+  var loadEngine = true;
+  if (userLang.substr(0,2) != "en") {
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.FloatPosition.TOP_LEFT
+      }, 'google_translate_element');
+    }
+  }
+  else {
+    document.getElementById("google_translate_element").style.display = "none";
+    loadEngine = false;
+  }
+
+  /* init Google Translate Element only when translation required */
+  if (loadEngine) {
+    const __this = document.getElementById('__translate');
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    js.src = "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+    __this.parentNode.insertBefore(js, __this.nextSibling);
+  }
+</script>
