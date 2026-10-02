@@ -23,9 +23,9 @@ To get started quickly, please refer to the Quick Start Guides. To build and cus
 * v17.0.0 (AOSP 17)
     * Supported RZ MPUs: RZ/G3L
     * See [Introduction to the RZ/G3L Software Package for AOSP 17](https://renesas-rz.github.io/rz_aosp/v17.0.0/introduction/)
-* v15.3.0 (AOSP 15)
+* v15.3.1 (AOSP 15)
     * Supported RZ MPUs: RZ/V2H
-    * See [Overview of the RZ/V2H Software Package for AOSP 15](https://renesas-rz.github.io/rz_aosp/v15.3.0/)
+    * See [Overview of the RZ/V2H Software Package for AOSP 15](https://renesas-rz.github.io/rz_aosp/v15.3.1/)
 * v14.5.1 (AOSP 14)
     * Supported RZ MPUs: RZ/G3E
     * Documentation is available in the software package distributed through the [Software & Tools for RZ/G3E](https://www.renesas.com/products/rz-g3e?tab=software-tools&softwareAndTools=true){: target="_blank" }. A direct download link is also provided below:<br />
